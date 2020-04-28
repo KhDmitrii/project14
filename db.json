@@ -1,0 +1,42 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "яблоко"
+    },
+    {
+      "name": "fewfwe",
+      "id": 2
+    },
+    {
+      "name": "fwefwfwe",
+      "id": 3
+    },
+    {
+      "name": "dawdaw",
+      "id": 4
+    },
+    {
+      "name": " gfbfbfn",
+      "id": 5
+    },
+    {
+      "name": " gfbfbfn",
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "name": "fsef",
+      "id": 9
+    },
+    {
+      "name": "fsefse",
+      "id": 10
+    }
+  ]
+}
