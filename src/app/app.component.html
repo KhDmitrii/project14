@@ -1,10 +1,8 @@
-<app-product-interface
-  (addProduct)="onAddProduct($event)"
-></app-product-interface>
 <div class="container">
-  <div class="row mt-3">
-    <div class="col-4" *ngFor="let product of products">
-      <app-product-element [product]="product"></app-product-element>
+  <app-product-add (addProduct)="onAddProduct($event)"></app-product-add>
+  <div class="row">
+    <div class="col-4" *ngFor="let item of products">
+      <app-product-element [product]="item"></app-product-element>
     </div>
   </div>
 </div>

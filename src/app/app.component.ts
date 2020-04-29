@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MyFirstService } from './shared/services/my-first.service';
-import { MyProductsService } from './shared/services/my-products.service';
-import { ProductsService } from './shared/http/products.service';
+import { TestProductsService } from './shared/services/test-products.service';
+import { MyProduct } from './shared/models/myproduct.model';
+import { HttpProductService } from './shared/services/http-product.service';
 
 @Component({
   selector: 'app-root',
@@ -10,34 +11,37 @@ import { ProductsService } from './shared/http/products.service';
 })
 export class AppComponent implements OnInit {
   title = 'project14';
-  products = [];
+
+  products: MyProduct[];
 
   constructor(
     private myFirstService: MyFirstService,
-    private myProductsService: MyProductsService,
-    private productsService: ProductsService
+    private testProductsService: TestProductsService,
+    private httpProductService: HttpProductService
   ) {}
 
-  async ngOnInit() {
-    this.myFirstService.mySupserFunction('hello');
-    // this.products = this.myProductsService.products;
-    this.updateData();
+  ngOnInit() {
+    // this.myFirstService.mySuperFunction('Hello');
+    // this.products = this.testProductsService.myProdycts;
+    // console.log(this.products);
+    this.getData();
   }
-  async updateData() {
+
+  async getData() {
     try {
-      this.products = await this.productsService.getProducts('products');
+      this.products = await this.httpProductService.getProducts();
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   }
 
-  async onAddProduct(obj) {
+  async onAddProduct(event: MyProduct) {
     try {
-      await this.productsService.postProduct('products', obj);
+      await this.httpProductService.postProduct(event);
     } catch (err) {
       console.error(err);
     } finally {
-      this.updateData();
+      this.getData();
     }
   }
 }

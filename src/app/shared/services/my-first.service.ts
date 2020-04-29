@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class MyFirstService {
   constructor() {}
 
-  mySupserFunction(param: string) {
-    console.log(param);
+  mySuperFunction(p) {
+    console.log(p);
   }
 }
